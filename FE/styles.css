@@ -38,12 +38,12 @@ input.form-control{
     border-radius: 5px;
 }
 
-input.btn{
+#submitBtn{
     background-color: #67C6E3;
     color:#DFF5FF;
     margin-left: 45%;
     margin-left: 45%;
 }
-input.btn:hover{
+#submitBtn:hover{
     background-color: #5356FF;
 }
