@@ -1,6 +1,7 @@
-function insertData(toDo) {
+function insertData() {
+  let toDo = document.getElementById("msg").value;
   const xhr = new XMLHttpRequest();
-  xhr.open("POST", "http://localhost:8080");
+  xhr.open("POST", "http://localhost:8080", true);
   xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
   const toDoJSONStringfy = JSON.stringify(toDo);
   xhr.onload = () => {
