@@ -17,3 +17,5 @@ http
     }
   })
   .listen(8080);
+
+//we wont gonna stop here, I havent been able to set it to the sql server yet :)))
