@@ -1,5 +1,3 @@
-let toDoText = document.getElementById("inputSubmit").;
-
 function insertData(toDo) {
   const xhr = new XMLHttpRequest();
   xhr.open("POST", "http://localhost:8080");
@@ -14,5 +12,3 @@ function insertData(toDo) {
   };
   xhr.send(toDoJSONStringfy);
 }
-insertData(toDoText);
-console.log(toDoText);

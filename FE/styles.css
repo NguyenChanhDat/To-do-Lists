@@ -40,10 +40,11 @@ input.form-control{
 
 #submitBtn{
     background-color: #67C6E3;
-    color:#DFF5FF;
+    color:white;
     margin-left: 45%;
     margin-left: 45%;
 }
 #submitBtn:hover{
     background-color: #5356FF;
+    color:black;
 }
