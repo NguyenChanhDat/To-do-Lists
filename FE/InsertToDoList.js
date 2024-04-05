@@ -1,9 +1,3 @@
-let mysql = require("mysql");
-var con = mysql.createConnection({
-  host: "localhost",
-  user: "sqluser",
-  password: "dat20112011",
-});
 function insertData() {
   let toDo = document.getElementById("msg").value;
   const xhr = new XMLHttpRequest();
