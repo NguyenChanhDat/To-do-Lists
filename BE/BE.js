@@ -5,6 +5,7 @@ var con = mysql.createConnection({
   host: "localhost",
   user: "sqluser",
   password: "dat20112011",
+  database: "todolistdb",
 });
 http
   .createServer(function (req, res) {
@@ -23,10 +24,13 @@ http
     con.connect(function (err) {
       if (err) throw err;
       console.log("Connected!");
-      con.query("CREATE DATABASE ToDoListDB", function (err, result) {
-        if (err) throw err;
-        console.log("Database created");
-      });
+      con.query(
+        "INSERT INTO todolisttable (todo) VALUES (" + body + ")",
+        function (err, result) {
+          if (err) throw err;
+          console.log("Data added to todolisttable!");
+        }
+      );
     });
   })
   .listen(8080);
