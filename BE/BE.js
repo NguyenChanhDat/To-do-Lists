@@ -1,7 +1,6 @@
 let http = require("http");
-let fs = require("fs");
 let mysql = require("mysql");
-var con = mysql.createConnection({
+var con = mysql.createPool({
   host: "localhost",
   user: "sqluser",
   password: "dat20112011",
@@ -21,7 +20,7 @@ http
         res.end("post received");
       });
     }
-    con.connect(function (err) {
+    con.getConnection(function (err) {
       if (err) throw err;
       console.log("Connected!");
       con.query(
