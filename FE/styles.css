@@ -48,3 +48,10 @@ input.form-control{
     background-color: #5356FF;
     color:black;
 }
+#toDoBox{
+    background-color: #378CE7;
+    border-radius: 5px;
+    width: 90%;
+    height: 200px;
+    margin-top:1%;
+}
