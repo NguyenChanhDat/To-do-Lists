@@ -1,25 +1,25 @@
-let http = require("http");
-let mysql = require("mysql");
-var con = mysql.createPool({
+const express = require("express");
+const http = require("http");
+const mysql = require("mysql");
+const app = express();
+const con = mysql.createPool({
   host: "localhost",
   user: "sqluser",
   password: "dat20112011",
   database: "todolistdb",
 });
-http
-  .createServer(function (req, res) {
-    if (req.method == "POST") {
-      var body = "";
-      req.on("data", function (data) {
-        body += data;
-        console.log("Partial body: " + body);
-      });
-      req.on("end", function () {
-        console.log("Body: " + body);
-        res.writeHead(200, { "Content-Type": "text/html" });
-        res.end("post received");
-      });
-    }
+app
+  .post("/", (req, res) => {
+    let body = "";
+    req.on("data", function (data) {
+      body += data;
+      console.log("Partial body: " + body);
+    });
+    req.on("end", function () {
+      console.log("Body: " + body);
+      res.writeHead(200, { "Content-Type": "text/html" });
+      res.end("post received");
+    });
     con.getConnection(function (err) {
       if (err) throw err;
       console.log("Connected!");
