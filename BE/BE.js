@@ -1,35 +1,33 @@
+const bodyParser = require("body-parser");
 const express = require("express");
-const http = require("http");
-const mysql = require("mysql");
 const app = express();
+const mysql = require("mysql");
 const con = mysql.createPool({
   host: "localhost",
   user: "sqluser",
   password: "dat20112011",
   database: "todolistdb",
 });
-app
-  .post("/", (req, res) => {
-    let body = "";
-    req.on("data", function (data) {
-      body += data;
-      console.log("Partial body: " + body);
-    });
-    req.on("end", function () {
-      console.log("Body: " + body);
-      res.writeHead(200, { "Content-Type": "text/html" });
-      res.end("post received");
-    });
-    con.getConnection(function (err) {
-      if (err) throw err;
-      console.log("Connected!");
-      con.query(
-        "INSERT INTO todolisttable (todo) VALUES (" + body + ")",
-        function (err, result) {
-          if (err) throw err;
-          console.log("Data added to todolisttable!");
-        }
-      );
-    });
-  })
-  .listen(8080);
+app.use(bodyParser.urlencoded({ extended: true }));
+app.listen(8080, () => {
+  console.log(`App listening at port 8080`);
+});
+app.post("/addTodo", function (req, res) {
+  console.log("todo: " + req.body.msg);
+  let todo = req.body.msg;
+  con.getConnection(function (err, connection) {
+    if (err) throw err;
+    console.log("Connected!");
+    // Use '?' as a placeholder for values
+    connection.query(
+      "INSERT INTO todolisttable (todo) VALUES (?)",
+      [todo], // Pass the todo value as an array
+      function (err, result) {
+        connection.release(); // Release the connection
+        if (err) throw err;
+        console.log("Data added to todolisttable in mySQL server!");
+        res.redirect("http://localhost:8081");
+      }
+    );
+  });
+});
