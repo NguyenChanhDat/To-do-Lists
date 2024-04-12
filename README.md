@@ -1,1 +1,2 @@
-Only thing left is make to-do list appear back to the web
+Almost finish, the only last feature is delete :))
+
