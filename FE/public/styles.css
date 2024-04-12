@@ -8,11 +8,13 @@ body {
     padding-top: 3px;
     padding-bottom: 3px;
 }
-#box {
+#toDoBox {
     background-color: #DFF5FF;
-    margin-top: 8%;
-    width: 60%;
-    height: 400px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    width: 80vh;
+    height: 80%; 
     border-radius: 15px;
 }
 div.mb-3{
@@ -39,6 +41,7 @@ input.form-control{
 }
 
 #submitBtn{
+    margin-top: 8px;
     background-color: #67C6E3;
     color:white;
     margin-left: 45%;
@@ -48,10 +51,15 @@ input.form-control{
     background-color: #5356FF;
     color:black;
 }
-#toDoBox{
+#toDoListsBox{
     background-color: #378CE7;
     border-radius: 5px;
-    width: 90%;
-    height: 200px;
-    margin-top:1%;
+    margin-top: 10px;
+    width: 80%;
+    height: 80%;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+#listsText{
+    font-size: xx-large;
 }
