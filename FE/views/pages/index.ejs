@@ -29,7 +29,7 @@
       <h1>MY TO-DO LISTS</h1>
     </div>
 
-    <div class="container" id="box">
+    <div class="container" id="toDoBox">
       <div class="mb-3">
         <form
           action="http://localhost:8080/addTodo"
@@ -53,11 +53,19 @@
             Submit
           </button>
         </form>
-        <div class="container-fluid text-white" id="toDoBox">
+        <div class="container-fluid text-white" id="toDoListsBox">
           <h1 id="listsText">Lists:</h1>
-          <ul>
+          <ul class="list-group custom-list-group" id="listGroup">
             <% for (let i = 0; i < toDo.length; i++) { %>
-            <li><%= toDo[i] %></li>
+            <li class="list-group-item">
+              <%= toDo[i] %>
+              <button
+                id="buttonClose"
+                type="button"
+                class="btn-close"
+                aria-label="Close"
+              ></button>
+            </li>
             <% } %>
           </ul>
         </div>

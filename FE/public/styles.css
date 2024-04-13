@@ -63,3 +63,12 @@ input.form-control{
 #listsText{
     font-size: xx-large;
 }
+.custom-list-group .list-group-item{
+    background-color: #DFF5FF;
+    display: flex;
+    justify-content: space-between;
+}
+#buttonClose{
+    align-self: right;
+    color: #5356FF;
+}
