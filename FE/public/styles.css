@@ -68,7 +68,10 @@ input.form-control{
     display: flex;
     justify-content: space-between;
 }
-#buttonClose{
+#closeBtn{
     align-self: right;
     color: #5356FF;
+    padding-top: 0px;
+    padding-bottom: 1px;
+    font-weight: bold;
 }
