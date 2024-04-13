@@ -59,9 +59,14 @@
                 class="btn"
                 href="http://localhost:8080/deleteTodo?todo=<%= encodeURIComponent(toDo[i]) %>"
                 role="button"
-                id="closeBtn"
-                >X</a
+                id="closeBtnA"
               >
+                <!-- <div class="container" id="closeBtnDiv"> -->
+                <button type="button" class="btn btn-outline-primary">
+                  <span id="xSign">X</span>
+                </button>
+                <!-- </div> -->
+              </a>
             </li>
             <% } %>
           </ul>
