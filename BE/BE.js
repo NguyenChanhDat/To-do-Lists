@@ -14,6 +14,7 @@ app.listen(8080, () => {
   console.log(`App listening at port 8080`);
 });
 app.post("/addTodo", function (req, res) {
+  console.log("req.body.date: " + req.body.date);
   console.log("todo: " + req.body.msg);
   let todo = req.body.msg;
   con.getConnection(function (err, connection) {
