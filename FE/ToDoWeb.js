@@ -19,13 +19,19 @@ app.use(express.static("public"));
 app.get("/", (req, res) => {
   con.getConnection(function (err) {
     if (err) throw err;
-    con.query("SELECT * FROM todolisttable", function (err, result, fields) {
-      if (err) throw err;
-      let toDo = [];
-      for (let i = 0; i < result.length; i++) {
-        toDo[i] = result[i].todo;
+    con.query(
+      "SELECT * FROM todolisttable ORDER BY date_time ASC",
+      function (err, result, fields) {
+        if (err) throw err;
+        let toDo = [];
+        for (let i = 0; i < result.length; i++) {
+          toDo.push({
+            toDoMission: result[i].todo,
+            toDoDate: String(result[i].date_time).slice(0, 15),
+          });
+        }
+        res.render("pages/index", { toDo });
       }
-      res.render("pages/index", { toDo });
-    });
+    );
   });
 });

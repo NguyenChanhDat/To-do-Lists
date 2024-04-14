@@ -60,7 +60,7 @@
           <ul class="list-group custom-list-group" id="listGroup">
             <% for (let i = 0; i < toDo.length; i++) { %>
             <li class="list-group-item" id="listLi">
-              <%= toDo[i] %>
+              <%= toDo[i].toDoMission %> <%= toDo[i].toDoDate %>
               <a
                 class="btn"
                 href="http://localhost:8080/deleteTodo?todo=<%= encodeURIComponent(toDo[i]) %>"
