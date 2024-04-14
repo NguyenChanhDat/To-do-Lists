@@ -39,18 +39,33 @@
           <label for="" class="form-label"
             >Write down your To-Do Missions</label
           >
-          <!--Type Todo Mission-->
-          <input
-            type="text"
-            class="form-control"
-            name="msg"
-            id="msg"
-            aria-describedby="helpId"
-            placeholder=""
-          />
-          <small id="helpId" class="form-text text-muted"></small>
-          <!-- Date Picker-->
-          <input type="text" id="datepicker" name="date" />
+          <div id="missionDateDiv">
+            <!--Insert Todo Mission-->
+            <input
+              type="text"
+              class="form-control"
+              name="msg"
+              id="insertBox"
+              aria-describedby="helpId"
+              placeholder=""
+            />
+            <small id="helpId" class="form-text text-muted"></small>
+            <div>
+              <!-- Date Picker-->
+              <input
+                type="text"
+                class="form-control"
+                id="datepicker"
+                name="date"
+              />
+              <img
+                id="calendarImg"
+                src="images/calendarIcon.jpg"
+                onclick="openDatePicker()"
+              />
+            </div>
+          </div>
+          <!--submit todo button-->
           <button type="submit" value="Submit" id="submitBtn" class="btn">
             Submit
           </button>
@@ -61,9 +76,10 @@
             <% for (let i = 0; i < toDo.length; i++) { %>
             <li class="list-group-item" id="listLi">
               <%= toDo[i].toDoMission %> <%= toDo[i].toDoDate %>
+              <!--delete todo button-->
               <a
                 class="btn"
-                href="http://localhost:8080/deleteTodo?todo=<%= encodeURIComponent(toDo[i]) %>"
+                href="http://localhost:8080/deleteTodo?todo=<%= encodeURIComponent(toDo[i].toDoMission) %>"
                 role="button"
                 id="closeBtnA"
               >
@@ -106,6 +122,12 @@
           // You can add more options here as per your requirements
         });
       });
+    </script>
+    <!-- JQuery to make calendar image clickable-->
+    <script>
+      function openDatePicker() {
+        $("#datepicker").datepicker("show");
+      }
     </script>
     <!-- CSS File -->
     <link rel="stylesheet" href="styles.css" />

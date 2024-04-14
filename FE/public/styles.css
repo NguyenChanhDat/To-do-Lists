@@ -13,7 +13,7 @@ body {
     margin-top: 10px;
     margin-bottom: 10px;
     padding-bottom: 10px;
-    width: 80vh;
+    width: 50%;
     height: 80%; 
     border-radius: 15px;
 }
@@ -37,10 +37,36 @@ label.form-label{
     padding-left: 25%;
 } */
 
-input.form-control{
-    border-radius: 5px;
+/* input.form-control{
+    border-radius: 15px;
+} */
+#insertBox{
+    margin-right: 10px;
+    border-radius: 15px;
 }
-
+#datepicker{
+    border-radius: 0px;
+}
+#missionDateDiv{
+    display: flex;
+}
+#missionDateDiv div{
+    display: flex;
+    border-radius: 15px;
+    /* flex-direction: row; */
+    overflow: hidden;
+}
+#calendarImg{
+    height: 40px;
+    width:auto;
+    background-color: #67C6E3;
+}
+#datepicker, #calendarImg{
+    padding: 0px;
+}
+#calendarImg:hover{
+    background-color: #5356FF;
+}
 #submitBtn{
     margin-top: 8px;
     background-color: #67C6E3;
@@ -54,7 +80,7 @@ input.form-control{
 }
 #toDoListsBox{
     background-color: #378CE7;
-    border-radius: 5px;
+    border-radius: 15px;
     margin-top: 10px;
     width: 80%;
     height: 80%;
