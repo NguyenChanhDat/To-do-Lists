@@ -9,7 +9,7 @@ const mysql = require("mysql");
 const con = mysql.createPool({
   host: env("DB_HOST", "localhost"),
   user: env("DB_USER", "sqluser"),
-  password: env("DB_PASSWORD", "dat20112011"),
+  password: env("DB_PASSWORD", "userpassword"),
   database: env("DB_NAME", "todolistdb"),
 });
 app.use(bodyParser.urlencoded({ extended: true }));

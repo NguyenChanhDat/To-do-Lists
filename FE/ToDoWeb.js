@@ -8,15 +8,15 @@ const mysql = require("mysql");
 const con = mysql.createPool({
   host: env("DB_HOST", "localhost"),
   user: env("DB_USER", "sqluser"),
-  password: env("DB_PASSWORD", "dat20112011"),
+  password: env("DB_PASSWORD", "userpassword"),
   database: env("DB_NAME", "todolistdb"),
 });
 // Setting EJS as the view engine
 app.set("view engine", "ejs");
 
 //Server is listening on port 8082
-app.listen(port=env.int("CLIENTS_PORT", 8089), () => {
-  console.log(`App listening at port`+port);
+app.listen((port = env.int("CLIENTS_PORT", 8089)), () => {
+  console.log(`App listening at port` + port);
 });
 app.use(express.static("public"));
 app.get("/", (req, res) => {
