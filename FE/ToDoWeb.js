@@ -1,19 +1,22 @@
+require("dotenv").config({ path: "../local.env" });
+const env = require("@ltv/env");
+
 const express = require("express");
 const app = express();
 const http = require("http");
 const mysql = require("mysql");
 const con = mysql.createPool({
-  host: "localhost",
-  user: "sqluser",
-  password: "dat20112011",
-  database: "todolistdb",
+  host: env("DB_HOST", "localhost"),
+  user: env("DB_USER", "sqluser"),
+  password: env("DB_PASSWORD", "dat20112011"),
+  database: env("DB_NAME", "todolistdb"),
 });
 // Setting EJS as the view engine
 app.set("view engine", "ejs");
 
 //Server is listening on port 8082
-app.listen(8081, () => {
-  console.log(`App listening at port 8081`);
+app.listen(port=env.int("CLIENTS_PORT", 8089), () => {
+  console.log(`App listening at port`+port);
 });
 app.use(express.static("public"));
 app.get("/", (req, res) => {

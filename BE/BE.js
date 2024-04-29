@@ -1,17 +1,21 @@
+require("dotenv").config({ path: "../local.env" });
+const env = require("@ltv/env");
+
 const bodyParser = require("body-parser");
 const express = require("express");
 const app = express();
 const mysql = require("mysql");
+
 const con = mysql.createPool({
-  host: "localhost",
-  user: "sqluser",
-  password: "dat20112011",
-  database: "todolistdb",
+  host: env("DB_HOST", "localhost"),
+  user: env("DB_USER", "sqluser"),
+  password: env("DB_PASSWORD", "dat20112011"),
+  database: env("DB_NAME", "todolistdb"),
 });
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.listen(8080, () => {
-  console.log(`App listening at port 8080`);
+app.listen((port = env.int("SERVERS_PORT", 8088)), () => {
+  console.log(`App listening at port ` + port);
 });
 app.post("/addTodo", function (req, res) {
   console.log("todo: " + req.body.msg);
