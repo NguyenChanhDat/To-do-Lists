@@ -1,1 +1,0 @@
-SELECT * FROM teamsMetrics ORDER BY points DESC, goal DESC LIMIT 10
