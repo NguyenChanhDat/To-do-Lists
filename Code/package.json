@@ -1,4 +1,7 @@
 {
+  "engines": {
+    "node": "14.x"
+  },
   "dependencies": {
     "@ltv/env": "^3.0.0",
     "body-parser": "^1.20.2",
