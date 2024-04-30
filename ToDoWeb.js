@@ -100,3 +100,4 @@ app.get("/deleteTodo", function (req, res) {
     );
   });
 });
+module.exports = app;
