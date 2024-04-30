@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>My Simple To-do Lists</title>
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="../../../HTML&CSS/Picture/favicon.ico"
+    />
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <!-- Bootstrap-datepicker CSS -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body>
+    <!-- place navbar here -->
+    <div class="container-fluid text-white" id="bar">
+      <h1>MY TO-DO LISTS</h1>
+    </div>
+
+    <div class="container" id="toDoBox">
+      <div class="mb-3">
+        <form action="http://localhost:8080/addTodo" method="POST">
+          <label for="" class="form-label"
+            >Write down your To-Do Missions</label
+          >
+          <div id="missionDateDiv">
+            <!--Insert Todo Mission-->
+            <input
+              type="text"
+              class="form-control"
+              name="msg"
+              id="insertBox"
+              aria-describedby="helpId"
+              placeholder="Ex:Absence Class :)))"
+            />
+            <small id="helpId" class="form-text text-muted"></small>
+            <div>
+              <!-- Date Picker-->
+              <input
+                type="text"
+                class="form-control"
+                id="datepicker"
+                name="date"
+                placeholder="Pick date"
+              />
+              <img
+                id="calendarImg"
+                src="images/calendarIcon.jpg"
+                onclick="openDatePicker()"
+              />
+            </div>
+          </div>
+          <!--submit todo button-->
+          <button type="submit" value="Submit" id="submitBtn" class="btn">
+            Submit
+          </button>
+        </form>
+        <div class="container-fluid text-white" id="toDoListsBox">
+          <h1 id="listsText">Lists:</h1>
+          <ul class="list-group custom-list-group" id="listGroup">
+            <% for (let i = 0; i < toDo.length; i++) { %>
+            <li class="list-group-item" id="listLi">
+              <%= toDo[i].toDoMission %>
+              <div>
+                <p id="date"><%= toDo[i].toDoDate %></p>
+                <!--delete todo button-->
+                <a
+                  class="btn"
+                  href="http://localhost:8080/deleteTodo?todo=<%= encodeURIComponent(toDo[i].toDoMission) %>"
+                  role="button"
+                  id="closeBtnA"
+                >
+                  <!-- <div class="container" id="closeBtnDiv"> -->
+                  <button type="button" class="btn btn-outline-primary">
+                    <span id="xSign">X</span>
+                  </button>
+                  <!-- </div> -->
+                </a>
+              </div>
+            </li>
+            <% } %>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <!-- place footer here -->
+    </footer>
+    <!-- Bootstrap JavaScript Libraries -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Bootstrap-datepicker JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+      integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+      crossorigin="anonymous"
+    ></script>
+    <!-- JQuery DatePicker-->
+    <script>
+      $(document).ready(function () {
+        $("#datepicker").datepicker({
+          format: "yyyy-mm-dd", // specify the date format
+          // You can add more options here as per your requirements
+        });
+      });
+    </script>
+    <!-- JQuery to make calendar image clickable-->
+    <script>
+      function openDatePicker() {
+        $("#datepicker").datepicker("show");
+      }
+    </script>
+    <!-- CSS File -->
+    <link rel="stylesheet" href="styles.css" />
+  </body>
+</html>

@@ -1,0 +1,137 @@
+body {
+    background-color: #5356FF;
+}
+#bar {
+    background-color: #378CE7;
+    text-align: center;
+    margin-top: 0px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+#toDoBox {
+    background-color: #DFF5FF;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    width: 50%;
+    height: 80%; 
+    border-radius: 15px;
+}
+div.mb-3{
+    padding-top: 20px;
+}
+label.form-label{
+    justify-content: center;
+    color:#378CE7;
+    font-size: larger;
+    font-weight: 450;
+}
+
+.container .form-label{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+/* small.form-text.text-muted{
+    text-align: center;
+    padding-left: 25%;
+} */
+
+/* input.form-control{
+    border-radius: 15px;
+} */
+#insertBox{
+    margin-right: 10px;
+    border-radius: 15px;
+}
+#datepicker{
+    border-radius: 0px;
+}
+#missionDateDiv{
+    display: flex;
+}
+#missionDateDiv div{
+    display: flex;
+    border-radius: 15px;
+    /* flex-direction: row; */
+    overflow: hidden;
+}
+#calendarImg{
+    height: 40px;
+    width:auto;
+    background-color: #67C6E3;
+}
+#datepicker, #calendarImg{
+    padding: 2px;
+}
+#calendarImg:hover{
+    background-color: #5356FF;
+}
+#submitBtn{
+    margin-top: 8px;
+    background-color: #67C6E3;
+    color:white;
+    margin-left: 45%;
+    margin-left: 45%;
+}
+#submitBtn:hover{
+    background-color: #5356FF;
+    color:black;
+}
+#toDoListsBox{
+    background-color: #378CE7;
+    border-radius: 15px;
+    margin-top: 10px;
+    width: 80%;
+    height: 80%;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+#listLi{
+    padding-bottom: 0px;
+}
+#listLi div{
+    display: flex;
+    overflow: hidden;
+}
+#date{
+    background-color: #378CE7;
+    border-radius: 10px;
+    height: 25px;
+    width:130px; 
+    color:white;
+    text-align: center;  
+}
+#listsText{
+    font-size: xx-large;
+}
+.custom-list-group .list-group-item{
+    background-color: #DFF5FF;
+    display: flex;
+    justify-content: space-between;
+}
+#closeBtnA{
+    padding-right: 2px;
+    align-self: right;
+    /* color: #5356FF; */
+    padding-top: 0px;
+    padding-bottom: 1px;
+    /* font-weight: bold; */
+    display: flex;
+    align-items: center;
+}
+.btn.btn-outline-primary{
+    height: 22px;
+    width: 10px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+/* #closeBtnDiv{
+    border: 1px solid #5356FF;
+} */
+#xSign{
+    font-size: small;
+    font-weight: bold;
+    margin: 0;
+}
